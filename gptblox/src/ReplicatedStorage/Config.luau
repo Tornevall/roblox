@@ -7,5 +7,5 @@ return table.freeze({
 	BaseY = 24,
 	LobbySize = 36,
 	RespawnLift = 5,
-	KillPlaneDepth = 30,
+	KillPlaneDepth = 16,
 })
