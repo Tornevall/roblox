@@ -1,0 +1,40 @@
+name: GPTBlox
+
+on:
+  pull_request:
+    paths:
+      - "gptblox/**"
+      - ".github/workflows/gptblox.yml"
+      - "AGENTS.md"
+      - "README.md"
+  push:
+    branches:
+      - main
+    paths:
+      - "gptblox/**"
+      - ".github/workflows/gptblox.yml"
+      - "AGENTS.md"
+      - "README.md"
+
+jobs:
+  build:
+    name: Rojo build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Rojo 7.7.0
+        shell: bash
+        run: |
+          curl --fail --location --silent --show-error \
+            https://github.com/rojo-rbx/rojo/releases/download/v7.7.0/rojo-7.7.0-linux-x86_64.zip \
+            --output rojo.zip
+          echo "22503e5839864f9d7c2171c48b536fc229f2cc4d8774c9cc149f60941d864073  rojo.zip" | sha256sum -c -
+          unzip -q rojo.zip -d rojo-bin
+          sudo install -m 0755 rojo-bin/rojo /usr/local/bin/rojo
+          rojo --version
+
+      - name: Build GPTBlox place
+        run: rojo build gptblox/default.project.json -o /tmp/gptblox.rbxlx
