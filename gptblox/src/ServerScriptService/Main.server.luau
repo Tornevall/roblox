@@ -66,6 +66,11 @@ local function teleportToCheckpoint(player, character)
 end
 
 local function setupPlayer(player)
+	if player:GetAttribute("GPTBloxInitialized") then
+		return
+	end
+	player:SetAttribute("GPTBloxInitialized", true)
+
 	local leaderstats = player:FindFirstChild("leaderstats")
 	if not leaderstats then
 		leaderstats = Instance.new("Folder")
@@ -106,7 +111,7 @@ for stage, checkpoint in ipairs(course.CheckpointParts) do
 		end
 
 		local currentStage = player:GetAttribute("CheckpointStage") or 0
-		if stage > currentStage then
+		if stage == currentStage + 1 then
 			setStage(player, stage)
 		end
 	end)
