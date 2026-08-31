@@ -18,6 +18,14 @@ The goal of this repository is to provide a place to:
 
 There is no single overarching project for this repository. It is intended to evolve over time as new experiments and ideas are added.
 
+## Projects
+
+### GPTBlox - Prompt Panic
+
+`gptblox/` contains a playable Roblox experiment where a deterministic daily obstacle course behaves like an unreliable AI generator. The initial mode includes procedural stage selection, hallucination platforms, disappearing context tiles, checkpoints, respawn, and a lightweight HUD.
+
+See [gptblox/README.md](gptblox/README.md) for setup and concept details.
+
 ## Status
 
 **Experimental / Work in progress**
