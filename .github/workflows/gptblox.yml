@@ -5,7 +5,6 @@ on:
     paths:
       - "gptblox/**"
       - ".github/workflows/gptblox.yml"
-      - "AGENTS.md"
       - "README.md"
   push:
     branches:
@@ -13,7 +12,6 @@ on:
     paths:
       - "gptblox/**"
       - ".github/workflows/gptblox.yml"
-      - "AGENTS.md"
       - "README.md"
 
 jobs:
